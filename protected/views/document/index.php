@@ -8,7 +8,6 @@
                             <?php if ($books[$i]->image != ""): ?>
                             <img alt="" src="<?php echo Yii::app()->getBaseUrl(true) . $books[$i]->image ?>" style="height: 284px; width: 284px;"> 
                             <?php endif; ?>
-
                             <?php if ($books[$i]->image == ""): ?>
                                 <img alt="" src="http://placehold.it/300"> 
                             <?php endif; ?>
@@ -42,12 +41,9 @@
             </div>
         </div>
     <?php endfor; ?>
-
 </div>
 <!-- Pagination -->
-
 <div class="text-center block">
-
     <?php
     $this->widget('CLinkPager', array(
         'pages' => $pages,
@@ -63,7 +59,6 @@
             )
     )
     ?>
-
 </div>
 <!-- /pagination -->
 
