@@ -35,10 +35,10 @@ class CopyController extends Controller {
 
     public function actionAddCopyForm() {
         try {
-            $bookID = StringHelper::filterString($_POST['bookID']);
-            $copyID = StringHelper::filterString($_POST['copyID']);
-            $note = StringHelper::filterString($_POST['note']);
-            $checked = StringHelper::filterString($_POST['checked']);
+            @$bookID = StringHelper::filterString($_POST['bookID']);
+            @$copyID = StringHelper::filterString($_POST['copyID']);
+            @$note = StringHelper::filterString($_POST['note']);
+            @$checked = StringHelper::filterString($_POST['checked']);
 
             $copy = new Copies;
             $copy->copyID = $copyID;

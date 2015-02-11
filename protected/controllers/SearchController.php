@@ -98,7 +98,7 @@ class SearchController extends Controller {
             $book_id = str_replace("_", "/", StringHelper::filterString($_GET['id']));
             $sql = "SELECT * FROM books JOIN booktype ON books.bookTypeID = booktype.bookTypeID JOIN branchbook ON books.branchID = branchbook.branchID WHERE books.bookID = '" . $book_id . "'";
             $book_detail = Yii::app()->db->createCommand($sql)->queryRow();
-            $this->render('detailBook', array('book_detail' => $book_detail));
+            $this->render('detailbook', array('book_detail' => $book_detail));
         } catch (exception $e) {
             echo $e->getMessage();
         }
@@ -112,7 +112,7 @@ class SearchController extends Controller {
             $student_detail = Yii::app()->db->createCommand($sql)->queryAll();
             $sql2 = "SELECT * FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.bookID WHERE lend.studentID = '" . $student_id . "' AND returnTime IS NOT NULL";
             $student_detail_return = Yii::app()->db->createCommand($sql2)->queryAll();
-            $this->render('detailUser', array('student_detail' => $student_detail, 'studentID' => $student_id, 'student_detail_return' => $student_detail_return));
+            $this->render('detailuser', array('student_detail' => $student_detail, 'studentID' => $student_id, 'student_detail_return' => $student_detail_return));
         } catch (exception $e) {
             echo $e->getMessage();
         }
@@ -206,7 +206,7 @@ class SearchController extends Controller {
             echo $e->getMessage();
         }
     }
-    
+
     public function actionEditUser() {
         try {
             $this->layout = "detail_search";
@@ -217,7 +217,7 @@ class SearchController extends Controller {
             echo $e->getMessage();
         }
     }
-    
+
     public function actionAddUser() {
         try {
             $this->layout = "detail_search";
@@ -226,7 +226,7 @@ class SearchController extends Controller {
             echo $e->getMessage();
         }
     }
-    
+
     public function actionEditCopy() {
         try {
             $this->layout = "detail_search";
@@ -234,7 +234,18 @@ class SearchController extends Controller {
             $copyIDs = Copies::model()->findAll();
             $bookIDs = Books::model()->findAll();
             $copy_detail = Copies::model()->findByAttributes(array('copyID' => $copy_id));
-            $this->render('editcopy', array('copy_detail' => $copy_detail, 'copyIDs' => $copyIDs, 'bookIDs'=> $bookIDs));
+            $this->render('editcopy', array('copy_detail' => $copy_detail, 'copyIDs' => $copyIDs, 'bookIDs' => $bookIDs));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function actionAddCopy() {
+        try {
+            $this->layout = "detail_search";
+            $copyIDs = Copies::model()->findAll();
+            $bookIDs = Books::model()->findAll();      
+            $this->render('addcopy', array('copyIDs' => $copyIDs, 'bookIDs' => $bookIDs));
         } catch (exception $e) {
             echo $e->getMessage();
         }
