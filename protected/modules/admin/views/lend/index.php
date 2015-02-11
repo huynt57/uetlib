@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    function editBranch(id) {
+    function editLend(id) {
         $("#result-edit").html("<h4>Loading .... </h4>");
         $.get("<?php echo Yii::app()->createUrl('search/editlend?id=') ?>" + id, function(data) {
             $("#result-edit").empty();
@@ -8,7 +8,7 @@
         });
     }
 
-    function addBranch() {
+    function addLend() {
         $("#result-add").html("<h4>Loading .... </h4>");
         $.get("<?php echo Yii::app()->createUrl('search/addlend') ?>", function(data) {
             $("#result-add").empty();
@@ -17,14 +17,14 @@
         });
     }
 
-    function deleteBranch() {
+    function deleteLend() {
         alert('Bạn có chắc chắn xóa không ?. Hành động này sẽ không thể quay lại được !');
     }
 </script>
 <div class="block">
     <h6 class="heading-hr">
-        <i class="icon-stack"></i>Quản lý Branch
-        <a data-toggle="modal" href="#default-modal-add"><button class="btn btn-success" style="margin-left: 100px;" onclick="addBranch()"><i class="icon-file-plus"></i> Thêm order</button></a>
+        <i class="icon-stack"></i>Quản lý việc cho mượn
+        <a data-toggle="modal" href="#default-modal-add"><button class="btn btn-success" style="margin-left: 100px;" onclick="addLend()"><i class="icon-file-plus"></i> Thêm order</button></a>
     </h6>
     <div class="datatable-books datatable">
         <table class="table table-striped table-bordered">
@@ -36,6 +36,7 @@
                     <th>Thời gian mượn</th>
                     <th>Thời gian hết hạn</th>
                     <th>Thời gian trả</th>
+                    <th>Trạng thái</th>
                     <th>Is return</th>
                     <th>Nhan vien</th>
                     <th class="text-center">Hành động</th>
@@ -51,11 +52,19 @@
                         <td><?php echo $lend->lentTime; ?></td>
                         <td><?php echo $lend->endTime; ?></td>
                         <td><?php echo $lend->returnTime; ?></td>
+                        <?php if (strtotime("now") <= strtotime($lend->endTime)): ?>
+                            <td><span class="label label-success"><?php echo 'Còn hạn'; ?></span></td>
+
+                        <?php endif; ?>
+                        <?php if (strtotime("now") > strtotime($lend->endTime)): ?>
+                            <td><span class="label label-danger"><?php echo 'Hết hạn'; ?></span></td>
+
+                        <?php endif; ?>
                         <td><?php echo $lend->isReturn; ?></td>
                         <td><?php echo $lend->nhanvien; ?></td>
                         <td class="text-center">
-                            <a data-toggle="modal" role="button" href="#default-modal-edit" class="btn btn-default btn-xs btn-icon"  onclick="editBranch('<?php echo $lend->orderNumber ?>')"><i class="icon-pencil4" ></i></a>
-                            <a data-toggle="modal" role="button" href="<?php echo Yii::app()->createUrl('admin/branch/deletelend?lendid=') . $lend->orderNumber ?>" class="btn btn-default btn-xs btn-icon" onclick="deleteBranch()"><i class="icon-remove3" ></i></a>
+                            <a data-toggle="modal" role="button" href="#default-modal-edit" class="btn btn-default btn-xs btn-icon"  onclick="editLend('<?php echo $lend->orderNumber ?>')"><i class="icon-pencil4" ></i></a>
+                            <a data-toggle="modal" role="button" href="<?php echo Yii::app()->createUrl('admin/lend/deletelend?lendid=') . $lend->orderNumber ?>" class="btn btn-default btn-xs btn-icon" onclick="deleteLend()"><i class="icon-remove3" ></i></a>
                         </td>
 
                     </tr>   

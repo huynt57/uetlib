@@ -182,7 +182,7 @@ class SearchController extends Controller {
             echo $e->getMessage();
         }
     }
-    
+
     public function actionAddLend() {
         try {
             $this->layout = "detail_search";
@@ -194,6 +194,51 @@ class SearchController extends Controller {
         }
     }
 
+    public function actionEditLend() {
+        try {
+            $this->layout = "detail_search";
+            $lend_id = StringHelper::filterString($_GET['id']);
+            $lend_detail = Lend::model()->findByAttributes(array('orderNumber' => $lend_id));
+            $copyIDs = Copies::model()->findAll();
+            $studentIDs = Users::model()->findAll();
+            $this->render('editlend', array('lend_detail' => $lend_detail, 'copyIDs' => $copyIDs, 'studentIDs' => $studentIDs));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+    public function actionEditUser() {
+        try {
+            $this->layout = "detail_search";
+            $user_id = StringHelper::filterString($_GET['id']);
+            $user_detail = Users::model()->findByAttributes(array('studentID' => $user_id));
+            $this->render('edituser', array('user_detail' => $user_detail));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+    public function actionAddUser() {
+        try {
+            $this->layout = "detail_search";
+            $this->render('adduser', array('user_detail'));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+    public function actionEditCopy() {
+        try {
+            $this->layout = "detail_search";
+            $copy_id = StringHelper::filterString($_GET['id']);
+            $copyIDs = Copies::model()->findAll();
+            $bookIDs = Books::model()->findAll();
+            $copy_detail = Copies::model()->findByAttributes(array('copyID' => $copy_id));
+            $this->render('editcopy', array('copy_detail' => $copy_detail, 'copyIDs' => $copyIDs, 'bookIDs'=> $bookIDs));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
 
     // Uncomment the following methods and override them if needed
     /*

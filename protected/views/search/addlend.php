@@ -1,43 +1,12 @@
 <form class="form-horizontal form-bordered validate" id="form-add-book"action="<?php echo Yii::app()->createUrl('admin/lend/addlendform') ?>" role="form" method="post" enctype="multipart/form-data" novalidate="novalidate">
     <div class="panel-body">
-
-      
         <div class="form-group">
-            <label class="col-sm-2 control-label">Tên sách</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control required"   name="bookName">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Hình ảnh</label>
-            <div class="col-sm-10">
-                <input type="file" class="styled" name="image">
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Tác giả</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control required  "   name="author">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Năm phát hành</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control required  "  name="years">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Book Type (Loại sách)</label>
+            <label class="col-sm-2 control-label">Student ID</label>
             <div class="col-sm-10">
 
-                <select name="book_type" class="form-control required  ">
-                    <?php foreach ($book_type_detail as $book_type): ?>
-                        <option value="<?php echo $book_type->bookTypeID ?>"><?php echo $book_type->bookTypeName ?></option>
+                <select name="student" class="form-control required  ">
+                    <?php foreach ($studentIDs as $studentID): ?>
+                        <option value="<?php echo $studentID->studentID ?>"><?php echo $studentID->studentID ?></option>
 
                     <?php endforeach; ?>
                 </select>
@@ -46,11 +15,11 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Branch (Chuyên mục)</label>
+            <label class="col-sm-2 control-label">Copy ID</label>
             <div class="col-sm-10">
-                <select name="branch" class="form-control required  ">
-                    <?php foreach ($branch_detail as $branch): ?>
-                        <option value="<?php echo $branch->branchID ?>"><?php echo $branch->branchName ?></option>
+                <select name="copy" class="form-control required  ">
+                    <?php foreach ($copyIDs as $copy): ?>
+                        <option value="<?php echo $copy->copyID ?>"><?php echo $copy->copyID ?></option>
 
                     <?php endforeach; ?>
                 </select>
@@ -58,30 +27,17 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Số trang</label>
+            <label class="col-sm-2 control-label">Thời điểm hết hạn</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control required  " name="pageNumber">
+                <input type="datetime-local" class="form-control required  "  name="endTime">
             </div>
         </div>
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Số lượng</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control required  "  name="numbers">
-            </div>
-        </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Giá</label>
+            <label class="col-sm-2 control-label">Nhân viên</label>
             <div class="col-sm-10">
-                <input type="number" class="form-control required  "  name="cost">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Miêu tả:</label>
-            <div class="col-sm-10">
-                <textarea rows="5" cols="5" class="form-control "  name="description"></textarea>
+                <input type="number" class="form-control required  " name="nhanvien">
             </div>
         </div>
 

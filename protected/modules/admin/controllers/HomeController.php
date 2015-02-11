@@ -3,11 +3,13 @@
 class HomeController extends Controller {
 
     public function actionIndex() {
+        Yii::app()->session['username'] = 1;
         $this->layout = 'login';
         $this->render('index');
     }
 
     public function actionLogin() {
+        Yii::app()->session['username'] = 1;
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
             try {
