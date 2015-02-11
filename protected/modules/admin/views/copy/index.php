@@ -24,7 +24,7 @@
 <div class="block">
     <h6 class="heading-hr">
         <i class="icon-stack"></i>Quản lý các bản copy
-        <a data-toggle="modal" href="#default-modal-add"><button class="btn btn-success" style="margin-left: 100px;" onclick="addcopy()"><i class="icon-file-plus"></i> Thêm book type</button></a>
+        <a data-toggle="modal" href="#default-modal-add"><button class="btn btn-success" style="margin-left: 100px;" onclick="addcopy()"><i class="icon-file-plus"></i> Thêm một bản copy</button></a>
     </h6>
     <div class="datatable-books datatable">
         <table class="table table-striped table-bordered">
