@@ -2,6 +2,14 @@
 
 class DocumentController extends Controller {
 
+    protected function beforeAction() {
+        if (Yii::app()->session['username'] == ""){
+            $this->redirect(yii::app()->createUrl('admin/home'));
+        } else {
+            $this->actionIndex();
+        }
+    }
+
     public function actionIndex() {
         $sql = "SELECT * FROM books JOIN booktype ON books.bookTypeID = booktype.bookTypeID JOIN branchbook ON books.branchID = branchbook.branchID";
         $book_detail = Yii::app()->db->createCommand($sql)->queryAll();

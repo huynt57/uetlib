@@ -2,6 +2,14 @@
 
 class CopyController extends Controller {
 
+    protected function beforeAction() {
+        if (Yii::app()->session['username'] == ""){
+            $this->redirect(yii::app()->createUrl('admin/home'));
+        } else {
+            $this->actionIndex();
+        }
+    }
+
     public function actionIndex() {
         try {
             $copies = Copies::model()->findAll();

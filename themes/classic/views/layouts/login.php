@@ -49,91 +49,25 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
 
     </head>
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            // Get current url
-            // Select an a element that has the matching href and apply a class of 'active'. Also prepend a - to the content of the link
 
-            var url = window.location.href;
-            $('a[href="' + url + '"]').parent().addClass('active');
+</script>
+<body class="full-width page-condensed">  
+    <!-- Page header -->
 
-
-        });
-    </script>
-    <body>
-
-        <!-- Navbar -->
-        <div class="navbar navbar-inverse" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Quản trị hệ thống</a>
-                <a class="sidebar-toggle"><i class="icon-paragraph-justify2"></i></a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons">
-                    <span class="sr-only">Toggle navbar</span>
-                    <i class="icon-grid3"></i>
-                </button>
-                <button type="button" class="navbar-toggle offcanvas">
-                    <span class="sr-only">Toggle navigation</span>
-                    <i class="icon-paragraph-justify2"></i>
-                </button>
-            </div>
-
-            <ul class="nav navbar-nav navbar-right collapse" id="navbar-icons">
-                <li class="user dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown">
-                       
-                        <span>Quản trị viên</span>
-                        <i class="caret"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right icons-right">
-                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/home/logout') ?>"><i class="icon-exit"></i> Đăng xuất</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <!-- /navbar -->
-        <!-- Page container -->
-        <div class="page-container">
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <div class="sidebar-content">
-                    <!-- Main navigation -->
-                    <ul class="navigation">
-                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin') ?>"><span>Dashboard</span> <i class="icon-screen2"></i></a></li>
-
-                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/document') ?>">Quản lý sách</a></li>
-                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/user') ?>">Quản lý người dùng</a></li>
-                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/copy') ?>">Quản lý các bản copy của sách</a></li>
-                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/lend') ?>">Quản lý việc cho mượn</a></li>
-                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/booktype') ?>">Quản lý Book Type</a></li>
-                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/branch') ?>">Quản lý Branch</a></li>
-                    </ul>
-                    <!-- /main navigation -->
-                </div>
-            </div>
-            <!-- /sidebar -->
-            <!-- Page content -->
-            <div class="page-content">
-                <!-- Page header -->
-                <div class="page-header">
-                    <div class="page-title">
-                        <h3>Dashboard</h3>
-                    </div>
-                </div>
-                <!-- /page header -->
-                <?php echo $content; ?>
+    <!-- /page header -->
+    <?php echo $content; ?>
 
 
-                <!-- Footer -->
-                <div class="footer clearfix">
-                    <div class="pull-left">Copyright 2014 - UETLib. All Rights Reserved. Developed by <a href="https://www.facebook.com/zhu.gheliang.5">Nguyễn Thế Huy</a> - K57CA UET - VNU - <a href="https://bluebee-uet.com">Bluebee UET Team</a></div>
+    <!-- Footer -->
+    <div class="footer clearfix">
+        <div class="pull-left">Copyright 2014 - UETLib. All Rights Reserved. Developed by <a href="https://www.facebook.com/zhu.gheliang.5">Nguyễn Thế Huy</a> - K57CA UET - VNU - <a href="https://bluebee-uet.com">Bluebee UET Team</a></div>
 
-                </div>
-                <!-- /footer -->
-            </div>
-            <!-- /page content -->
+    </div>
+    <!-- /footer -->
 
-        </div>
-        <!-- /page container -->
+    <!-- /page content -->
 
-    </body>
+    <!-- /page container -->
+
+</body>
 </html>
