@@ -4,7 +4,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Book ID</label>
             <div class="col-sm-10">
-                <select name="copy" class="form-control required  ">
+                <select name="bookID" class="form-control required  ">
                     <?php foreach ($bookIDs as $book): ?>
                         <option value="<?php echo $book->bookID ?>" <?php if($copy_detail->bookID == $book->bookID) echo 'selected'?>><?php echo $book->bookID ?></option>
                     <?php endforeach; ?>
@@ -16,7 +16,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Copy ID</label>
             <div class="col-sm-10">
-                <select name="bookID" class="form-control required  ">
+                <select name="copyID" class="form-control required  ">
                     <?php foreach ($copyIDs as $copy): ?>
                         <option value="<?php echo $copy->copyID ?>" <?php if($copy_detail->copyID == $copy->copyID) echo 'selected'?>><?php echo $copy->copyID ?></option>
                     <?php endforeach; ?>

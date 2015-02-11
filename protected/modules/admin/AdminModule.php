@@ -20,6 +20,14 @@ class AdminModule extends CWebModule {
             // this method is called before any module controller action is performed
             // you may place customized code here
             $controller->layout = 'admin';
+            if ($action->id != "login") {
+                if (Yii::app()->session['username'] == "") {
+                  //  die();
+                    $controller->redirect(yii::app()->createUrl('admin/home/login'));              
+                } else {
+                    return true;
+                }
+            }
             return true;
         } else
             return false;

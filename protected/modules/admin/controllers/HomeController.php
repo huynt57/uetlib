@@ -3,13 +3,13 @@
 class HomeController extends Controller {
 
     public function actionIndex() {
-        Yii::app()->session['username'] = 1;
+     //   Yii::app()->session['username'] = 1;
         $this->layout = 'login';
         $this->render('index');
     }
 
     public function actionLogin() {
-        Yii::app()->session['username'] = 1;
+        $this->layout = 'login';
         $request = Yii::app()->request;
         if ($request->isPostRequest && isset($_POST)) {
             try {
@@ -36,6 +36,7 @@ class HomeController extends Controller {
                 echo ($e->getMessage());
             }
         }
+        $this->render('login');
     }
 
     public function actionLogout() {
@@ -70,3 +71,4 @@ class HomeController extends Controller {
       }
      */
 }
+?>
