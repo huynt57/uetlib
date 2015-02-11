@@ -2,16 +2,15 @@
 
 class LendController extends Controller {
 
-    protected function beforeAction() {
-        if (Yii::app()->session['username'] == ""){
-            $this->redirect(yii::app()->createUrl('admin/home'));
-        } else {
-            $this->actionIndex();
-        }
-    }
+    
 
     public function actionIndex() {
-        $this->render('index');
+        try {
+            $lends = Lend::model()->findAll();
+            $this->render('index', array('lends' => $lends));
+        } catch (Exception $ex) {
+            $ex->getMessage();
+        }
     }
 
     // Uncomment the following methods and override them if needed

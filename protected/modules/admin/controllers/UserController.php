@@ -2,13 +2,6 @@
 
 class UserController extends Controller {
 
-    protected function beforeAction() {
-        if (Yii::app()->session['username'] == "") {
-            $this->redirect(yii::app()->createUrl('admin/home'));
-        } else {
-            $this->actionIndex();
-        }
-    }
 
     public function actionIndex() {
         $this->render('index');

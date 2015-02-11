@@ -2,13 +2,11 @@
 
 class DocumentController extends Controller {
 
-    protected function beforeAction() {
-        if (Yii::app()->session['username'] == ""){
-            $this->redirect(yii::app()->createUrl('admin/home'));
-        } else {
-            $this->actionIndex();
-        }
-    }
+//    protected function beforeAction() {
+//        if (Yii::app()->session['username'] == "") {
+//            $this->redirect(yii::app()->createUrl('admin/home'));
+//        } 
+//    }
 
     public function actionIndex() {
         $sql = "SELECT * FROM books JOIN booktype ON books.bookTypeID = booktype.bookTypeID JOIN branchbook ON books.branchID = branchbook.branchID";
@@ -28,7 +26,6 @@ class DocumentController extends Controller {
             @$numbers = StringHelper::filterString($_POST['numbers']);
             @$cost = StringHelper::filterString($_POST['cost']);
             @$description = StringHelper::filterString($_POST['description']);
-
             $edit_book = Books::model()->findByAttributes(array('bookID' => $bookID));
             $edit_book->bookName = $bookName;
             $edit_book->author = $author;
@@ -94,8 +91,6 @@ class DocumentController extends Controller {
             @$numbers = StringHelper::filterString($_POST['numbers']);
             @$cost = StringHelper::filterString($_POST['cost']);
             @$description = StringHelper::filterString($_POST['description']);
-
-
             $edit_book = new Books;
             $edit_book->bookID = $bookID;
             $edit_book->bookName = $bookName;
@@ -107,7 +102,6 @@ class DocumentController extends Controller {
             $edit_book->numbers = $numbers;
             $edit_book->cost = $cost;
             $edit_book->description = $description;
-
             if (isset($_FILES['image'])) {
                 if ($_FILES['image']['name'] != "") {
                     $name = StringHelper::generateRandomString(5) . $_FILES['image']['name'];
@@ -124,7 +118,6 @@ class DocumentController extends Controller {
                 $edit_book->image = "";
             }
             $edit_book->save(FALSE);
-
             $this->redirect(Yii::app()->createURL('admin/document'));
         } catch (exception $e) {
             echo $e->getMessage();

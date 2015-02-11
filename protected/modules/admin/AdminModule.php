@@ -11,7 +11,7 @@ class AdminModule extends CWebModule {
             'admin.components.*',
         ));
         $this->layoutPath = Yii::getPathOfAlias('webroot') . "/themes/classic/views/layouts";
-        ;
+
         $this->layout = 'admin';
     }
 

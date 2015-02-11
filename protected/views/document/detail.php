@@ -8,7 +8,7 @@
                 <div class="thumbnail">
                     <div class="thumb">
                         <?php if ($book_detail['image'] != ""): ?>
-                            <img alt="" src="<?php echo Yii::app()->getBaseUrl(true) . $res->image ?>" height="300px" width="300px"> 
+                        <img alt="" src="<?php echo Yii::app()->getBaseUrl(true) . $book_detail['image'] ?>" style="height: 284px; width: 284px;"> 
                         <?php endif; ?>
 
                         <?php if ($book_detail['image'] == ""): ?>

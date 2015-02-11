@@ -182,6 +182,18 @@ class SearchController extends Controller {
             echo $e->getMessage();
         }
     }
+    
+    public function actionAddLend() {
+        try {
+            $this->layout = "detail_search";
+            $copyIDs = Copies::model()->findAll();
+            $studentIDs = Users::model()->findAll();
+            $this->render('addlend', array('copyIDs' => $copyIDs, 'studentIDs' => $studentIDs));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
 
     // Uncomment the following methods and override them if needed
     /*
