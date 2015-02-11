@@ -143,6 +143,46 @@ class SearchController extends Controller {
         }
     }
 
+    public function actionAddBranch() {
+        try {
+            $this->layout = "detail_search";
+            $this->render('addbranch');
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function actionEditBranch() {
+        try {
+            $branch_id = StringHelper::filterString($_GET['id']);
+            $this->layout = "detail_search";
+            $branch_detail = Branchbook::model()->findByAttributes(array('branchID' => $branch_id));
+            $this->render('editbranch', array('branch_detail' => $branch_detail));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function actionAddBookType() {
+        try {
+            $this->layout = "detail_search";
+            $this->render('addbooktype');
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function actionEditBookType() {
+        try {
+            $book_type_id = StringHelper::filterString($_GET['id']);
+            $this->layout = "detail_search";
+            $book_type_detail = Booktype::model()->findByAttributes(array('bookTypeID' => $book_type_id));
+            $this->render('editbooktype', array('book_type_detail' => $book_type_detail));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
     // Uncomment the following methods and override them if needed
     /*
       public function filters()

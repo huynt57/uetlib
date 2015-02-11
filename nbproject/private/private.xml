@@ -3,23 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/editbook.php</file>
             <file>file:/E:/xampp/htdocs/uetlib/themes/classic/views/layouts/main.php</file>
             <file>file:/E:/xampp/htdocs/uetlib/protected/views/document/detail.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/controllers/SearchController.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/detailuser.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/controllers/DocumentController.php</file>
+            <file>file:/E:/xampp/htdocs/uetlib/protected/modules/admin/views/default/index.php</file>
+            <file>file:/E:/xampp/htdocs/uetlib/protected/modules/admin/controllers/DefaultController.php</file>
             <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/detailbook.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/index.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/search_student_name.php</file>
+            <file>file:/E:/xampp/htdocs/uetlib/protected/modules/admin/AdminModule.php</file>
+            <file>file:/E:/xampp/htdocs/uetlib/protected/views/document/branchtype.php</file>
             <file>file:/E:/xampp/htdocs/uetlib/protected/views/document/index.php</file>
             <file>file:/E:/xampp/htdocs/uetlib/protected/config/main.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/search_book_id.php</file>
+            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/addbook.php</file>
+            <file>file:/E:/xampp/htdocs/uetlib/themes/classic/views/layouts/admin.php</file>
             <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/index.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/themes/classic/views/site/error404.php</file>
             <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/search_book_name.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/controllers/SiteController.php</file>
+            <file>file:/E:/xampp/htdocs/uetlib/themes/classic/assets/js/plugins/forms/validate.min.js</file>
             <file>file:/E:/xampp/htdocs/uetlib/themes/classic/views/layouts/detail_search.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/search_student_id.php</file>
+            <file>file:/E:/xampp/htdocs/uetlib/protected/modules/admin/controllers/DocumentController.php</file>
+            <file>file:/E:/xampp/htdocs/uetlib/protected/modules/admin/views/document/index.php</file>
         </group>
     </open-files>
 </project-private>

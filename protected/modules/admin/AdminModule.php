@@ -10,7 +10,8 @@ class AdminModule extends CWebModule {
             'admin.models.*',
             'admin.components.*',
         ));
-        $this->layoutPath = Yii::getPathOfAlias('webroot')."/themes/classic/views/layouts";;
+        $this->layoutPath = Yii::getPathOfAlias('webroot') . "/themes/classic/views/layouts";
+        ;
         $this->layout = 'admin';
     }
 
@@ -19,7 +20,11 @@ class AdminModule extends CWebModule {
             // this method is called before any module controller action is performed
             // you may place customized code here
             $controller->layout = 'admin';
-            return true;
+            if (Yii::app()->user->isGuest && $action=="login") {
+                $controller->redirect(Yii::app()->createUrl('admin/home'));
+            } else {
+                return true;
+            }
         } else
             return false;
     }

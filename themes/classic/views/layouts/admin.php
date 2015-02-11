@@ -49,7 +49,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
 
     </head>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            // Get current url
+            // Select an a element that has the matching href and apply a class of 'active'. Also prepend a - to the content of the link
 
+            var url = window.location.href;
+            $('a[href="' + url + '"]').parent().addClass('active');
+
+
+        });
+    </script>
     <body>
 
         <!-- Navbar -->
@@ -84,22 +94,16 @@
                 <div class="sidebar-content">
                     <!-- Main navigation -->
                     <ul class="navigation">
-                        <li class="active"><a href="index.html"><span>Dashboard</span> <i class="icon-screen2"></i></a></li>
-                        <li>
-                            <a href="#"><span>Form components</span> <i class="icon-paragraph-justify2"></i></a>
-                            <ul>
-                                <li><a href="form_components.html">Form components</a></li>
-                                <li><a href="form_layouts.html">Form layouts</a></li>
-                                <li><a href="form_grid.html">Inputs grid</a></li>
-                                <li><a href="wysiwyg.html">WYSIWYG editor</a></li>
-                                <li><a href="validation.html">Validation</a></li>
-                                <li><a href="file_uploader.html">Multiple file uploader</a></li>
-                                <li><a href="form_snippets.html">Form snippets</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin') ?>"><span>Dashboard</span> <i class="icon-screen2"></i></a></li>
+
+                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/document') ?>">Quản lý sách</a></li>
+                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/user') ?>">Quản lý người dùng</a></li>
+                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/copy') ?>">Quản lý các bản copy của sách</a></li>
+                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/lend') ?>">Quản lý việc cho mượn</a></li>
+                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/booktype') ?>">Quản lý Book Type</a></li>
+                        <li><a href="<?php echo Yii::app()->createAbsoluteUrl('admin/branch') ?>">Quản lý Branch</a></li>
                     </ul>
                     <!-- /main navigation -->
-
                 </div>
             </div>
             <!-- /sidebar -->
