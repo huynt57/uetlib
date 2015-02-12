@@ -30,7 +30,8 @@ return array(
         "ext.Core.models.*",
         "ext.Core.app.*",
         "ext.AdminTable.*",
-        "ext.EGMap.*"
+        "ext.EGMap.*",
+        'ext.Paginator.*'
     ),
     'modules' => array(
         // uncomment the following to enable the Gii tool
@@ -61,15 +62,15 @@ return array(
             'connectionString' => 'sqlite:' . dirname(__FILE__) . '/../data/testdrive.db',
         ),
         // uncomment the following to use a MySQL database
-        /*
+        
           'db'=>array(
-          'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+          'connectionString' => 'mysql:host=localhost;dbname=libs',
           'emulatePrepare' => true,
           'username' => 'root',
           'password' => '',
           'charset' => 'utf8',
           ),
-         */
+         
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',
