@@ -4,12 +4,11 @@
             <div class="block">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <a href="#" title="" ><img alt="" src="http://placehold.it/300" ></a>
+                        <a href="<?php echo $this->createUrl('document/detail',array('book_id'=>  str_replace('/', '_',$books[$i]->bookID), 'book_name' => $books[$i]->bookName)) ?>" title="" ><img alt="" src="http://placehold.it/300" ></a>
 
                     </div>
                     <div class="caption">
-                        <a href="#" title="" class="caption-title"><?php echo $books[$i]->bookName; ?></a>
-
+                        <a href="<?php echo $this->createUrl('document/detail',array('book_id'=>$books[$i]->bookID, 'book_name' => $books[$i]->bookName)) ?>" title="" class="caption-title"><?php echo $books[$i]->bookName; ?></a>
                     </div>
                 </div>
             </div>
@@ -17,11 +16,11 @@
             <div class="block">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <a href="#" title="" > <img alt="" src="http://placehold.it/300"></a>
+                        <a href="<?php echo $this->createUrl('document/detail',array('book_id'=>$books[$i+1]->bookID, 'book_name' => $books[$i+1]->bookName)) ?>" title="" > <img alt="" src="http://placehold.it/300"></a>
 
                     </div>
                     <div class="caption">
-                        <a href="#" title="" class="caption-title"><?php echo $books[$i + 1]->bookName; ?></a>
+                        <a href="<?php echo $this->createUrl('document/detail',array('book_id'=>$books[$i+1]->bookID, 'book_name' => $books[$i+1]->bookName)) ?>" title="" class="caption-title"><?php echo $books[$i + 1]->bookName; ?></a>
 
                     </div>
                 </div>
@@ -39,10 +38,10 @@
         'pages' => $pages,
         'maxButtonCount' => 6,
         'htmlOptions' => array('class' => 'pagination',
-            ),
+        ),
         'header' => '',
-        'prevPageLabel' => 'Trước',
-        'nextPageLabel' => 'Sau',
+        'prevPageLabel' => '&larr;',
+        'nextPageLabel' => '&rarr;',
         'firstPageLabel' => 'Đầu tiên',
         'lastPageLabel' => 'Cuối cùng',
         'selectedPageCssClass' => 'active',

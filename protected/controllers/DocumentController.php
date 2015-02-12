@@ -19,7 +19,14 @@ class DocumentController extends Controller {
     }
 
     public function actionDetail() {
-        $this->render('detail');
+        try {
+            $book_id = $_GET['book_id'];
+            $book_id = str_replace('_', '/', $book_id);
+            $book_detail = Books::model()->findByAttributes(array('bookID' => $book_id));
+            $this->render('detail', array('book_detail' => $book_detail));
+        } catch (exception $e) {
+            $e->getMessage();
+        }
     }
 
     // Uncomment the following methods and override them if needed
