@@ -7,7 +7,7 @@ class DocumentController extends Controller {
         $total = Books::model()->count();
 
         $pages = new CPagination($total);
-        $pages->pageSize = 32;
+        $pages->pageSize = 12;
         $pages->applyLimit($criteria);
 
         $books = Books::model()->findAll($criteria);
@@ -23,7 +23,7 @@ class DocumentController extends Controller {
             $book_id = $_GET['book_id'];
             $book_id = str_replace('_', '/', $book_id);
             $book_id = StringHelper::filterString($book_id);
-            $sql = "SELECT * FROM books JOIN booktype ON books.bookTypeID = booktype.bookTypeID JOIN branchbook ON books.branchID = branchbook.branchID WHERE books.bookID = '".$book_id."'";
+            $sql = "SELECT * FROM books JOIN booktype ON books.bookTypeID = booktype.bookTypeID JOIN branchbook ON books.branchID = branchbook.branchID WHERE books.bookID = '" . $book_id . "'";
             $book_detail = Yii::app()->db->createCommand($sql)->queryRow();
             $this->render('detail', array('book_detail' => $book_detail));
         } catch (exception $e) {

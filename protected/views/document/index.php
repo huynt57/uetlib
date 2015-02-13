@@ -1,6 +1,6 @@
 <div class="row">
     <?php for ($i = 0; $i < count($books) - 1; $i+=2): ?>
-        <div class="col-md-2 col-sm-2" style="width: 12.5%;">
+        <div class="col-lg-2 col-md-2 col-sm-2" style="">
             <div class="block">
                 <div class="thumbnail">
                     <div class="thumb">

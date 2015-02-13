@@ -46,6 +46,7 @@
 
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/js/application.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
 
     </head>
 
@@ -138,7 +139,7 @@
                                         <div class="choice"><span class=""><input type="radio" name="search-option" class="styled" value="users"></span></div>
                                         Người dùng
                                     </label>
-                                    
+
                                 </div>
                             </div>
 
@@ -164,15 +165,6 @@
                     <div class="page-title">
                         <h3>Horizontal navigation <small>Horizontal navigation layout example</small></h3>
                     </div>
-
-                    <div id="reportrange" class="range">
-                        <div class="visible-xs header-element-toggle">
-                            <a class="btn btn-primary btn-icon"><i class="icon-calendar"></i></a>
-                        </div>
-                        <div class="date-range"></div>
-                        <span class="label label-danger">9</span>
-                    </div>
-
                 </div>
 
                 <!-- /page header -->
