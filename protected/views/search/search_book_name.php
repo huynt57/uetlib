@@ -29,9 +29,13 @@
                     <tr>
                         <td><a href="<?php echo $this->createUrl('document/detail',array('book_id'=>  str_replace('/', '_',$res->bookID), 'book_name' => $res->bookName)) ?>"><strong><?php echo $res->bookID ?></strong></a></td>
                         <td>
-                            <div class="thumb">
-                                <img alt="" src="http://placehold.it/300" height="150px" width="150px">
-                            </div>
+                            <?php if ($res->image != ""): ?>
+                            <img alt="" src="<?php echo Yii::app()->getBaseUrl(true) . $res->image ?>" height="150px" width="150px"> 
+                            <?php endif; ?>
+
+                            <?php if ($res->image == ""): ?>
+                                <img alt="" src="http://placehold.it/150"> 
+                            <?php endif; ?>
                         </td>
                         <td><?php echo $res->bookName ?></td>
     <!--                        <td><h4><?php //echo $res->numbers    ?></h4></td>-->

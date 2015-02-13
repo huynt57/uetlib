@@ -15,6 +15,7 @@
  * @property integer $numbers
  * @property integer $cost
  * @property string $description
+ * @property string $image
  *
  * The followings are the available model relations:
  * @property Branchbook $branch
@@ -53,10 +54,11 @@ class Books extends CActiveRecord
 			array('years, pageNumber, numbers, cost', 'numerical', 'integerOnly'=>true),
 			array('bookID, bookTypeID', 'length', 'max'=>10),
 			array('branchID', 'length', 'max'=>5),
+			array('image', 'length', 'max'=>500),
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('bookID, bookName, publisher, author, years, branchID, bookTypeID, pageNumber, numbers, cost, description', 'safe', 'on'=>'search'),
+			array('bookID, bookName, publisher, author, years, branchID, bookTypeID, pageNumber, numbers, cost, description, image', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -91,6 +93,7 @@ class Books extends CActiveRecord
 			'numbers' => 'Numbers',
 			'cost' => 'Cost',
 			'description' => 'Description',
+			'image' => 'Image',
 		);
 	}
 
@@ -116,6 +119,7 @@ class Books extends CActiveRecord
 		$criteria->compare('numbers',$this->numbers);
 		$criteria->compare('cost',$this->cost);
 		$criteria->compare('description',$this->description,true);
+		$criteria->compare('image',$this->image,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

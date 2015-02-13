@@ -7,7 +7,13 @@
             <div class="block">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <img alt="" src="http://placehold.it/300">
+                        <?php if ($book_detail['image'] != ""): ?>
+                            <img alt="" src="<?php echo Yii::app()->getBaseUrl(true) . $res->image ?>" height="300px" width="300px"> 
+                        <?php endif; ?>
+
+                        <?php if ($book_detail['image'] == ""): ?>
+                            <img alt="" src="http://placehold.it/300"> 
+                        <?php endif; ?>
                     </div>
 
                     <div class="caption text-center">
@@ -49,18 +55,18 @@
                                 </div>
                                 <span>Số trang</span>
                             </li>
-<!--                            <li>
-                                <div class="statistics-info">
-                                    <a href="#" title="" class="bg-warning"><i class="icon-point-up"></i></a>
-                                    <strong><?php //echo $book_detail['numbers']; ?></strong>
-                                </div>
-                                <div class="progress progress-micro">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
-                                        <span class="sr-only">20% Complete</span>
-                                    </div>
-                                </div>
-                                <span>Số lượng</span>
-                            </li>-->
+                            <!--                            <li>
+                                                            <div class="statistics-info">
+                                                                <a href="#" title="" class="bg-warning"><i class="icon-point-up"></i></a>
+                                                                <strong><?php //echo $book_detail['numbers'];   ?></strong>
+                                                            </div>
+                                                            <div class="progress progress-micro">
+                                                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+                                                                    <span class="sr-only">20% Complete</span>
+                                                                </div>
+                                                            </div>
+                                                            <span>Số lượng</span>
+                                                        </li>-->
 
                             <li>
                                 <div class="statistics-info">

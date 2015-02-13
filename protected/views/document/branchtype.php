@@ -4,7 +4,15 @@
             <div class="block">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <a href="<?php echo $this->createUrl('document/detail', array('book_id' => str_replace('/', '_', $books[$i]->bookID), 'book_name' => $books[$i]->bookName)) ?>" title="" ><img alt="" src="http://placehold.it/300" ></a>
+                        <a href="<?php echo $this->createUrl('document/detail', array('book_id' => str_replace('/', '_', $books[$i]->bookID), 'book_name' => $books[$i]->bookName)) ?>" title="" >
+                            <?php if ($books[$i]->image != ""): ?>
+                                <img alt="" src="<?php echo Yii::app()->getBaseUrl(true) . $books[$i]->image ?>" height="300px" width="300px"> 
+                            <?php endif; ?>
+
+                            <?php if ($books[$i]->image == ""): ?>
+                                <img alt="" src="http://placehold.it/300"> 
+                            <?php endif; ?>
+                        </a>
 
                     </div>
                     <div class="caption">
@@ -16,7 +24,15 @@
             <div class="block">
                 <div class="thumbnail">
                     <div class="thumb">
-                        <a href="<?php echo $this->createUrl('document/detail', array('book_id' => str_replace('/', '_', $books[$i + 1]->bookID), 'book_name' => $books[$i + 1]->bookName)) ?>" title="" > <img alt="" src="http://placehold.it/300"></a>
+                        <a href="<?php echo $this->createUrl('document/detail', array('book_id' => str_replace('/', '_', $books[$i + 1]->bookID), 'book_name' => $books[$i + 1]->bookName)) ?>" title="" > 
+                            <?php if ($books[$i + 1]->image != ""): ?>
+                                <img alt="" src="<?php echo Yii::app()->getBaseUrl(true) . $books[$i + 1]->image ?>" height="300px" width="300px"> 
+                            <?php endif; ?>
+
+                            <?php if ($books[$i + 1]->image == ""): ?>
+                                <img alt="" src="http://placehold.it/300"> 
+                            <?php endif; ?>
+                        </a>
 
                     </div>
                     <div class="caption">

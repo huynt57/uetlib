@@ -9,10 +9,10 @@ class SearchController extends Controller {
         $query = StringHelper::filterString($_GET['query']);
         $option = StringHelper::filterString($_GET['search-option']);
 
-        $this->headerTitle = "Kết quả tìm kiếm cho từ khóa \"" . $query."\"";
-        $this->pageTitle = "Kết quả tìm kiếm cho từ khóa \"" . $query."\"" . " | uetlib.edu.vn";
-        $title = "Kết quả tìm kiếm cho từ khóa \"" . $query."\"" . " | uetlib.edu.vn";
-        $des = "Kết quả tìm kiếm cho từ khóa \"" . $query."\"" . " | uetlib.edu.vn";
+        $this->headerTitle = "Kết quả tìm kiếm cho từ khóa \"" . $query . "\"";
+        $this->pageTitle = "Kết quả tìm kiếm cho từ khóa \"" . $query . "\"" . " | uetlib.edu.vn";
+        $title = "Kết quả tìm kiếm cho từ khóa \"" . $query . "\"" . " | uetlib.edu.vn";
+        $des = "Kết quả tìm kiếm cho từ khóa \"" . $query . "\"" . " | uetlib.edu.vn";
         $image = Yii::app()->getBaseUrl(true) . "/themes/classic/assets/images/logo.png";
         Yii::app()->clientScript->registerMetaTag($title, null, null, array('property' => 'og:title'));
         Yii::app()->clientScript->registerMetaTag($image, null, null, array('property' => 'og:image'));
@@ -92,7 +92,7 @@ class SearchController extends Controller {
         }
     }
 
-    public function actionDetailBook() {   
+    public function actionDetailBook() {
         try {
             $this->layout = "detail_search";
             $book_id = str_replace("_", "/", StringHelper::filterString($_GET['id']));
@@ -113,6 +113,31 @@ class SearchController extends Controller {
             $sql2 = "SELECT * FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.bookID WHERE lend.studentID = '" . $student_id . "' AND returnTime IS NOT NULL";
             $student_detail_return = Yii::app()->db->createCommand($sql2)->queryAll();
             $this->render('detailUser', array('student_detail' => $student_detail, 'studentID' => $student_id, 'student_detail_return' => $student_detail_return));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function actionEditBook() {
+        try {
+            $this->layout = "detail_search";
+            $book_id = str_replace("_", "/", StringHelper::filterString($_GET['id']));
+            $sql = "SELECT * FROM books JOIN booktype ON books.bookTypeID = booktype.bookTypeID JOIN branchbook ON books.branchID = branchbook.branchID WHERE books.bookID = '" . $book_id . "'";
+            $book_detail = Yii::app()->db->createCommand($sql)->queryRow();
+            $branch_detail = Branchbook::model()->findAll();
+            $book_type_detail = Booktype::model()->findAll();
+            $this->render('editbook', array('book_detail' => $book_detail, 'branch_detail' => $branch_detail, 'book_type_detail' => $book_type_detail));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function actionAddBook() {
+        try {
+            $this->layout = "detail_search";
+            $branch_detail = Branchbook::model()->findAll();
+            $book_type_detail = Booktype::model()->findAll();
+            $this->render('addbook', array('branch_detail' => $branch_detail, 'book_type_detail' => $book_type_detail));
         } catch (exception $e) {
             echo $e->getMessage();
         }
