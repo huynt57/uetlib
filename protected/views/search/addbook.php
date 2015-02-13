@@ -1,10 +1,10 @@
-<form class="form-horizontal form-bordered validate" action="<?php echo Yii::app()->createUrl('admin/document/addbookform') ?>" role="form" method="post" enctype="multipart/form-data">
+<form class="form-horizontal form-bordered validate" id="form-add-book"action="<?php echo Yii::app()->createUrl('admin/document/addbookform') ?>" role="form" method="post" enctype="multipart/form-data" novalidate="novalidate">
     <div class="panel-body">
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Mã sách</label>
+            <label class="col-sm-2 control-label">Mã sách </label>
             <div class="col-sm-10">
-                <input type="text" class="required form-control"   name="bookID">
+                <input type="text" class="required form-control"  required name="bookID">
             </div>
         </div>
 
@@ -12,7 +12,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Tên sách</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control required  "   name="bookName">
+                <input type="text" class="form-control required"   name="bookName">
             </div>
         </div>
 
@@ -34,7 +34,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Năm phát hành</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control required  "  name="years">
+                <input type="number" class="form-control required  "  name="years">
             </div>
         </div>
 
@@ -67,28 +67,28 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Số trang</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control required  " name="pageNumber">
+                <input type="number" class="form-control required  " name="pageNumber">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Số lượng</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control required  "  name="numbers">
+                <input type="number" class="form-control required  "  name="numbers">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Giá</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control required  "  name="cost">
+                <input type="number" class="form-control required  "  name="cost">
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Miêu tả:</label>
             <div class="col-sm-10">
-                <textarea rows="5" cols="5" class="form-control required  "  name="description"></textarea>
+                <textarea rows="5" cols="5" class="form-control "  name="description"></textarea>
             </div>
         </div>
 
@@ -98,3 +98,6 @@
 
     </div>
 </form>
+<script>
+    $("#form-add-book").validate();
+</script>
