@@ -53,9 +53,13 @@
                     <tr>
                         <td><strong><?php echo $book['bookID']; ?></strong></td>
                         <td>
-                            <div class="thumb">
-                                <img alt="" src="http://placehold.it/300" height="150px" width="150px">
-                            </div>
+                            <?php if ($book['image'] != ""): ?>
+                                <img alt="" src="<?php echo Yii::app()->getBaseUrl(true) . $book['image'] ?>" height="150" width="150"> 
+                            <?php endif; ?>
+
+                            <?php if ($book['image']== ""): ?>
+                                <img alt="" src="http://placehold.it/150"> 
+                            <?php endif; ?>
                         </td>
                         <td><?php echo $book['bookName'] ?></td>
                         <td><h4><?php echo $book['numbers'] ?></h4></td>
