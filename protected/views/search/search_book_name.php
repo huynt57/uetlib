@@ -27,7 +27,7 @@
             <tbody>
                 <?php foreach ($search_book_name as $res): ?>
                     <tr>
-                        <td><a href="invoice.html"><strong><?php echo $res->bookID ?></strong></a></td>
+                        <td><a href="<?php echo $this->createUrl('document/detail',array('book_id'=>  str_replace('/', '_',$res->bookID), 'book_name' => $res->bookName)) ?>"><strong><?php echo $res->bookID ?></strong></a></td>
                         <td>
                             <div class="thumb">
                                 <img alt="" src="http://placehold.it/300" height="150px" width="150px">

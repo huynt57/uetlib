@@ -82,7 +82,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search3"></i> <span>Search</span> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search3"></i> <span>Tìm kiếm</span> <b class="caret"></b></a>
                     <div class="popup dropdown-menu dropdown-menu-right" style="display: none;">
                         <div class="popup-header">
                             <a href="#" class="pull-left"><i class="icon-paragraph-justify"></i></a>
@@ -145,11 +145,7 @@
                 <!-- Footer -->
                 <div class="footer clearfix">
                     <div class="pull-left">Copyright 2014 - UETLib. All Rights Reserved. Developed by <a href="https://www.facebook.com/zhu.gheliang.5">Nguyễn Thế Huy</a> - K57CA UET - VNU - <a href="https://bluebee-uet.com">Bluebee UET Team</a></div>
-                    <div class="pull-right icons-group">
-                        <a href="#"><i class="icon-screen2"></i></a>
-                        <a href="#"><i class="icon-balance"></i></a>
-                        <a href="#"><i class="icon-cog3"></i></a>
-                    </div>
+
                 </div>
                 <!-- /footer -->
 

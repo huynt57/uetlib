@@ -26,15 +26,26 @@
             <tbody>
                 <?php foreach ($search_book_id as $res): ?>
                     <tr>
-                        <td><a href="invoice.html"><strong><?php echo $res->bookID ?></strong></a></td>
+                        <td><a href="<?php echo $this->createUrl('document/detail',array('book_id'=>  str_replace('/', '_',$res->bookID), 'book_name' => $res->bookName)) ?>"><strong><?php echo $res->bookID ?></strong></a></td>
                         <td>
                             <div class="thumb">
                                 <img alt="" src="http://placehold.it/300" height="150px" width="150px">
                             </div>
                         </td>
                         <td><?php echo $res->bookName ?></td>
-<!--                        <td><h4><?php //echo $res->numbers ?></h4></td>-->
-                        <td><span class="label label-success">Paid on 12 Jan, 2014</span></td>
+    <!--                        <td><h4><?php //echo $res->numbers  ?></h4></td>-->
+                        <?php
+                        $sql2 = "SELECT count(*) AS count_lend FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.copyID WHERE books.bookID = '" . $res->bookID . "'";
+                        $count_lend = Yii::app()->db->createCommand($sql2)->queryRow();
+                        ?>
+                        <?php if ($count_lend['count_lend'] >= $res->numbers): ?>
+                            <td><span class="label label-danger"><?php echo 'Hết sách'; ?></span></td>
+
+                        <?php endif; ?>
+                        <?php if ($count_lend['count_lend'] < $res->numbers): ?>
+                            <td><span class="label label-success"><?php echo 'Còn sách'; ?></span></td>
+
+                        <?php endif; ?>
                         <td><span class="text-semibold"><?php echo $res->cost ?></span></td>
                         <td class="text-center"><a data-toggle="modal" role="button" href="#default-modal" class="btn btn-default btn-xs btn-icon" onclick="getInfoBook('<?php echo str_replace("/", "_", $res->bookID) ?>')"><i class="icon-file6" ></i></a></td>
                     </tr>   
