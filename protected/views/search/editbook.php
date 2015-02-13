@@ -1,4 +1,4 @@
-<form class="form-horizontal form-bordered" action="<?php echo Yii::app()->createUrl('admin/document/editbookform') ?>" role="form" method="post">
+<form class="form-horizontal form-bordered" action="<?php echo Yii::app()->createUrl('admin/document/editbookform') ?>" role="form" method="post" enctype="multipart/form-data">
     <div class="panel-body">
 
         <input type="hidden" class="form-control" placeholder="<?php echo $book_detail['bookID'] ?>" value="<?php echo $book_detail['bookID'] ?>" name="bookID">
@@ -8,6 +8,13 @@
             <label class="col-sm-2 control-label">Tên sách</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" placeholder="<?php echo $book_detail['bookName'] ?>" value="<?php echo $book_detail['bookName'] ?>" name="bookName">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Hình ảnh</label>
+            <div class="col-sm-10">
+                <input type="file" class="styled" name="image">
             </div>
         </div>
 

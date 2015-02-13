@@ -31,7 +31,21 @@ class DocumentController extends Controller {
             $edit_book->numbers = $numbers;
             $edit_book->cost = $cost;
             $edit_book->description = $description;
-
+            if (isset($_FILES['image'])) {
+                if ($_FILES['image']['name'] != "") {
+                    $name = StringHelper::generateRandomString(5) . $_FILES['image']['name'];
+                    $storeFolder = '/uploads/';   //2
+                    $tempFile = $_FILES['image']['tmp_name'];
+                    $targetPath = $storeFolder;
+                    $targetFile = $targetPath . $name;
+                    $edit_book->image = $targetFile;
+                    move_uploaded_file($tempFile, Yii::getPathOfAlias('webroot') . '/' . $targetFile); //6
+                } else {
+                    
+                }
+            } else {
+                
+            }
             $edit_book->save(FALSE);
 
             $this->redirect(Yii::app()->createURL('admin/document'));
@@ -87,13 +101,19 @@ class DocumentController extends Controller {
             $edit_book->description = $description;
 
             if (isset($_FILES['image'])) {
-                $name = StringHelper::generateRandomString(5).$_FILES['image']['name'];
-                $storeFolder = '/uploads/';   //2
-                $tempFile = $_FILES['image']['tmp_name'];
-                $targetPath = $storeFolder;
-                $targetFile = $targetPath . $name;
-                $edit_book->image = $targetFile;
-                move_uploaded_file($tempFile, Yii::getPathOfAlias('webroot') . '/'.$targetFile); //6
+                if ($_FILES['image']['name'] != "") {
+                    $name = StringHelper::generateRandomString(5) . $_FILES['image']['name'];
+                    $storeFolder = '/uploads/';   //2
+                    $tempFile = $_FILES['image']['tmp_name'];
+                    $targetPath = $storeFolder;
+                    $targetFile = $targetPath . $name;
+                    $edit_book->image = $targetFile;
+                    move_uploaded_file($tempFile, Yii::getPathOfAlias('webroot') . '/' . $targetFile); //6
+                } else {
+                    $edit_book->image = "";
+                }
+            } else {
+                $edit_book->image = "";
             }
             $edit_book->save(FALSE);
 

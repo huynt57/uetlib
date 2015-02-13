@@ -1,10 +1,10 @@
-<form class="form-horizontal form-bordered" action="<?php echo Yii::app()->createUrl('admin/document/addbookform') ?>" role="form" method="post" enctype="multipart/form-data">
+<form class="form-horizontal form-bordered validate" action="<?php echo Yii::app()->createUrl('admin/document/addbookform') ?>" role="form" method="post" enctype="multipart/form-data">
     <div class="panel-body">
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Mã sách</label>
             <div class="col-sm-10">
-                <input type="text" class="required form-control   "   name="bookID">
+                <input type="text" class="required form-control"   name="bookID">
             </div>
         </div>
 
