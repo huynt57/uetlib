@@ -49,10 +49,10 @@
                                 </div>
                                 <span>Số trang</span>
                             </li>
-                            <li>
+<!--                            <li>
                                 <div class="statistics-info">
                                     <a href="#" title="" class="bg-warning"><i class="icon-point-up"></i></a>
-                                    <strong><?php echo $book_detail['numbers']; ?></strong>
+                                    <strong><?php //echo $book_detail['numbers']; ?></strong>
                                 </div>
                                 <div class="progress progress-micro">
                                     <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
@@ -60,6 +60,26 @@
                                     </div>
                                 </div>
                                 <span>Số lượng</span>
+                            </li>-->
+
+                            <li>
+                                <div class="statistics-info">
+                                    <a href="#" title="" class="bg-warning"><i class="icon-point-up"></i></a>
+                                    <?php if ($count_lend['count_lend'] >= $book_detail['numbers']): ?>
+                                        <strong class="label label-<?php echo 'danger' ?>"><?php echo 'Hết sách' ?></strong>
+
+                                    <?php endif; ?>
+                                    <?php if ($count_lend['count_lend'] < $book_detail['numbers']): ?>
+                                        <strong class="label label-<?php echo 'success' ?>"><?php echo 'Còn sách' ?></strong>
+
+                                    <?php endif; ?>
+                                </div>
+                                <div class="progress progress-micro">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;">
+                                        <span class="sr-only">20% Complete</span>
+                                    </div>
+                                </div>
+                                <span>Tình trạng</span>
                             </li>
                             <li>
                                 <div class="statistics-info">
@@ -73,8 +93,8 @@
                                 </div>
                                 <span>Giá</span>
                             </li>
-                            
-                             <li>
+
+                            <li>
                                 <div class="statistics-info">
                                     <a href="#" title="" class="bg-info"><i class="icon-cart-plus"></i></a>
                                     <strong><?php echo $book_detail['bookTypeName']; ?></strong>
@@ -86,7 +106,7 @@
                                 </div>
                                 <span>Loại sách</span>
                             </li>
-                            
+
                             <li>
                                 <div class="statistics-info">
                                     <a href="#" title="" class="bg-info"><i class="icon-cart-plus"></i></a>

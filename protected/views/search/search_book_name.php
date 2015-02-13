@@ -18,7 +18,7 @@
                     <th class="book-number">Mã sách</th>
                     <th>Hình ảnh</th>
                     <th>Tên sách</th>
-                    <th class="book-amount">Số lượng</th>
+<!--                    <th class="book-amount">Số lượng</th>-->
                     <th>Tình trạng</th>
                     <th class="book-cost">Giá</th>
                     <th class="book-expand text-center">Chi tiết</th>
@@ -34,8 +34,19 @@
                             </div>
                         </td>
                         <td><?php echo $res->bookName ?></td>
-                        <td><h4><?php echo $res->numbers ?></h4></td>
-                        <td><span class="label label-success">Paid on 12 Jan, 2014</span></td>
+    <!--                        <td><h4><?php //echo $res->numbers   ?></h4></td>-->
+                        <?php
+                        $sql2 = "SELECT count(*) AS count_lend FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.copyID WHERE books.bookID = '" . $res->bookID . "'";
+                        $count_lend = Yii::app()->db->createCommand($sql2)->queryRow();
+                        ?>
+                        <?php if ($count_lend['count_lend'] >= $res->numbers): ?>
+                            <td><span class="label label-danger"><?php echo 'Hết sách'; ?></span></td>
+
+                        <?php endif; ?>
+                        <?php if ($count_lend['count_lend'] < $res->numbers): ?>
+                            <td><span class="label label-success"><?php echo 'Còn sách'; ?></span></td>
+
+                        <?php endif; ?>
                         <td><span class="text-semibold"><?php echo $res->cost ?></span></td>
                         <td class="text-center"><a data-toggle="modal" role="button" href="#default-modal-book-name" class="btn btn-default btn-xs btn-icon" onclick="getInfoBookName('<?php echo str_replace("/", "_", $res->bookID) ?>')"><i class="icon-file6" ></i></a></td>
                     </tr>   
@@ -63,7 +74,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                
+
             </div>
         </div>
     </div>

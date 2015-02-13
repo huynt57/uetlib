@@ -17,7 +17,7 @@
                     <th class="book-number">Mã sách</th>
                     <th>Hình ảnh</th>
                     <th>Tên sách</th>
-                    <th class="book-amount">Số lượng</th>
+<!--                    <th class="book-amount">Số lượng</th>-->
                     <th>Tình trạng</th>
                     <th class="book-cost">Giá</th>
                     <th class="book-expand text-center">Chi tiết</th>
@@ -33,7 +33,7 @@
                             </div>
                         </td>
                         <td><?php echo $res->bookName ?></td>
-                        <td><h4><?php echo $res->numbers ?></h4></td>
+<!--                        <td><h4><?php //echo $res->numbers ?></h4></td>-->
                         <td><span class="label label-success">Paid on 12 Jan, 2014</span></td>
                         <td><span class="text-semibold"><?php echo $res->cost ?></span></td>
                         <td class="text-center"><a data-toggle="modal" role="button" href="#default-modal" class="btn btn-default btn-xs btn-icon" onclick="getInfoBook('<?php echo str_replace("/", "_", $res->bookID) ?>')"><i class="icon-file6" ></i></a></td>

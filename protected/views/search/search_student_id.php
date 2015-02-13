@@ -19,7 +19,7 @@
                     <th>Tên sinh viên</th>
                     <th>Lớp / Đơn vị</th>                  
                     <th>Ngày sinh</th>
-                    <th>Thông tin chi tiết</th>
+                    <th class="text-center">Thông tin chi tiết</th>
                 </tr>
             </thead>
             <tbody>

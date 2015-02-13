@@ -21,11 +21,13 @@ class DocumentController extends Controller {
     public function actionDetail() {
         try {
             $book_id = $_GET['book_id'];
-            $book_id = str_replace('_', '/', $book_id);
             $book_id = StringHelper::filterString($book_id);
+            $book_id = str_replace('_', '/', $book_id);
             $sql = "SELECT * FROM books JOIN booktype ON books.bookTypeID = booktype.bookTypeID JOIN branchbook ON books.branchID = branchbook.branchID WHERE books.bookID = '" . $book_id . "'";
             $book_detail = Yii::app()->db->createCommand($sql)->queryRow();
-            $this->render('detail', array('book_detail' => $book_detail));
+            $sql2 = "SELECT count(*) AS count_lend FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.copyID WHERE books.bookID = '" . $book_id . "'";
+            $check_remain = Yii::app()->db->createCommand($sql2)->queryRow();
+            $this->render('detail', array('book_detail' => $book_detail, 'count_lend' => $check_remain));
         } catch (exception $e) {
             echo $e->getMessage();
         }
