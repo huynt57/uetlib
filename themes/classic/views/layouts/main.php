@@ -71,13 +71,19 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book2"></i> <span>Loại sách</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="form_components.html">Form components</a></li>
+                        <?php $bookTypes = Booktype::model()->findAll(); ?>
+                        <?php foreach ($bookTypes as $bookType): ?>
+                            <li><a href="<?php echo $this->createUrl('document/booktype', array('book_type' => $bookType->bookTypeID, 'book_type_name' => $bookType->bookTypeName)) ?>"><?php echo $bookType->bookTypeName; ?></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notebook"></i> <span>Thể loại</span> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notebook"></i> <span>Chuyên mục</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="visuals.html">Visuals &amp; notifications</a></li>
+                        <?php $branchTypes = Branchbook::model()->findAll(); ?>
+                        <?php foreach ($branchTypes as $branchType): ?>
+                            <li><a href="<?php echo $this->createUrl('document/branchtype', array('branch_type' => $branchType->branchID, 'branch_type_name' => $branchType->branchName)) ?>"><?php echo $branchType->branchName; ?></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </li>
 
@@ -119,29 +125,19 @@
             </ul>
         </div>
         <!-- /navbar -->
-
-
         <!-- Page container -->
         <div class="page-container">
-
-
             <!-- Page content -->
             <div class="page-content">
-
-
                 <!-- Page header -->
                 <div class="page-header">
                     <div class="page-title">
-                        <h3>Horizontal navigation <small>Horizontal navigation layout example</small></h3>
+                        <h3><?php echo CHtml::encode($this->headerTitle); ?><small>Horizontal navigation layout example</small></h3>
                     </div>
                 </div>
 
                 <!-- /page header -->
-
-
                 <?php echo $content; ?>
-
-
                 <!-- Footer -->
                 <div class="footer clearfix">
                     <div class="pull-left">Copyright 2014 - UETLib. All Rights Reserved. Developed by <a href="https://www.facebook.com/zhu.gheliang.5">Nguyễn Thế Huy</a> - K57CA UET - VNU - <a href="https://bluebee-uet.com">Bluebee UET Team</a></div>

@@ -1,8 +1,9 @@
 <?php
 
 class DocumentController extends Controller {
-
+    public $headerTitle;
     public function actionIndex() {
+        $this->headerTitle = "Trang chủ";
         $criteria = new CDbCriteria;
         $total = Books::model()->count();
 
@@ -28,6 +29,46 @@ class DocumentController extends Controller {
             $sql2 = "SELECT count(*) AS count_lend FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.copyID WHERE books.bookID = '" . $book_id . "'";
             $check_remain = Yii::app()->db->createCommand($sql2)->queryRow();
             $this->render('detail', array('book_detail' => $book_detail, 'count_lend' => $check_remain));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function actionBookType() {
+        try {
+            $book_type = $_GET['book_type'];
+            $book_type = StringHelper::filterString($book_type);
+            $criteria = new CDbCriteria;
+            $criteria->condition = "bookTypeID = '" . $book_type."'";
+            $total = Books::model()->count($criteria);
+            $pages = new CPagination($total);
+            $pages->pageSize = 12;
+            $pages->applyLimit($criteria);
+            $books = Books::model()->findAll($criteria);
+            $this->render('booktype', array(
+                'books' => $books,
+                'pages' => $pages,
+            ));
+        } catch (exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    
+    public function actionBranchType() {
+        try {
+            $branch_type = $_GET['branch_type'];
+            $branch_type = StringHelper::filterString($branch_type);
+            $criteria = new CDbCriteria;
+            $criteria->condition = "branchID = '" . $branch_type."'";
+            $total = Books::model()->count($criteria);
+            $pages = new CPagination($total);
+            $pages->pageSize = 12;
+            $pages->applyLimit($criteria);
+            $books = Books::model()->findAll($criteria);
+            $this->render('branchtype', array(
+                'books' => $books,
+                'pages' => $pages,
+            ));
         } catch (exception $e) {
             echo $e->getMessage();
         }

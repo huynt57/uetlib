@@ -12,17 +12,27 @@
                         <th>Tên sách</th>
                         <th>Ngày mượn</th>
                         <th>Ngày hết hạn</th>
+                        <th>Trạng thái</th>
                     </tr>
                 </thead>
-                <?php $i = 0;?>
+                <?php $i = 0; ?>
                 <tbody>
                     <?php foreach ($student_detail as $detail): ?>
-                        
+
                         <tr>
                             <td><?php echo ++$i; ?></td>
                             <td><?php echo $detail['bookName']; ?></td>
-                            <td><?php echo $detail['lentTime']; ?></td>
-                            <td><?php echo $detail['endTime']; ?></td>
+                            <td><?php echo date("d/m/Y", strtotime($detail['lentTime'])); ?></td>
+                            <td><?php echo date("d/m/Y", strtotime($detail['endTime'])); ?></td>
+
+                            <?php if (strtotime("now") <= strtotime($detail['endTime'])): ?>
+                                <td><span class="label label-success"><?php echo 'Còn hạn'; ?></span></td>
+
+                            <?php endif; ?>
+                            <?php if (strtotime("now") > strtotime($detail['endTime'])): ?>
+                                <td><span class="label label-danger"><?php echo 'Hết hạn'; ?></span></td>
+
+                            <?php endif; ?>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -43,15 +53,15 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $j = 0;?>
+                <?php $j = 0; ?>
                 <?php foreach ($student_detail_return as $detail2): ?>
-                    
+
                     <tr>
                         <td><?php echo ++$j; ?></td>
                         <td><?php echo $detail2['bookName']; ?></td>
-                        <td><?php echo $detail2['lentTime']; ?></td>
-                        <td><?php echo $detail2['endTime']; ?></td>
-                        <td><?php echo $detail2['returnTime']; ?></td>
+                        <td><?php echo date("d/m/Y", strtotime($detail2['lentTime'])); ?></td>
+                        <td><?php echo date("d/m/Y", strtotime($detail2['endTime'])); ?></td>
+                        <td><?php echo date("d/m/Y", strtotime($detail2['returnTime'])); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
