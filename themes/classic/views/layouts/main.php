@@ -116,36 +116,33 @@
                     <div class="popup dropdown-menu dropdown-menu-right" style="display: none;">
                         <div class="popup-header">
                             <a href="#" class="pull-left"><i class="icon-paragraph-justify"></i></a>
-                            <span>Quick search</span>
+                            <span>Tìm kiếm</span>
                             <a href="#" class="pull-right"><i class="icon-new-tab"></i></a>
                         </div>
-                        <form action="#" class="breadcrumb-search">
-                            <input type="text" placeholder="Type and hit enter..." name="search" class="form-control autocomplete ui-autocomplete-input" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                        <form action="<?php echo Yii::app()->createUrl("search") ?>" class="breadcrumb-search" method="get">
+                            <input type="text" placeholder="Gõ và nhấn Enter...." name="query" class="form-control" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
                             <div class="row">
                                 <div class="col-xs-6">
                                     <label class="radio">
-                                        <div class="choice"><span class="checked"><input type="radio" name="search-option" class="styled" checked="checked"></span></div>
-                                        Everywhere
+                                        <div class="choice"><span class=""><input type="radio" name="search-option" class="styled" checked="checked" value="everything"></span></div>
+                                        Mọi thứ
                                     </label>
                                     <label class="radio">
-                                        <div class="choice"><span><input type="radio" name="search-option" class="styled"></span></div>
-                                        Invoices
+                                        <div class="choice"><span class=""><input type="radio" name="search-option" class="styled" value="books"></span></div>
+                                        Sách
                                     </label>
                                 </div>
 
                                 <div class="col-xs-6">
                                     <label class="radio">
-                                        <div class="choice"><span><input type="radio" name="search-option" class="styled"></span></div>
-                                        Users
+                                        <div class="choice"><span class=""><input type="radio" name="search-option" class="styled" value="users"></span></div>
+                                        Người dùng
                                     </label>
-                                    <label class="radio">
-                                        <div class="choice"><span><input type="radio" name="search-option" class="styled"></span></div>
-                                        Orders
-                                    </label>
+                                    
                                 </div>
                             </div>
 
-                            <input type="submit" class="btn btn-block btn-success" value="Search">
+                            <input type="submit" class="btn btn-block btn-success" value="Tìm kiém">
                         </form>
                     </div>
                 </li>
