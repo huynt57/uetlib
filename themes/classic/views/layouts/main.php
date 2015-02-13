@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-        <title>Londinium - premium responsive admin template by Eugene Kopyov</title>
+        <title><?php echo $this->pageTitle;?></title>
 
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/css/londinium-theme.css" rel="stylesheet" type="text/css">
@@ -132,7 +132,7 @@
                 <!-- Page header -->
                 <div class="page-header">
                     <div class="page-title">
-                        <h3><?php echo CHtml::encode($this->headerTitle); ?><small>Horizontal navigation layout example</small></h3>
+                        <h3><?php echo CHtml::encode($this->headerTitle); ?><small>Tài liệu hữu ích cho sinh viên UET</small></h3>
                     </div>
                 </div>
 

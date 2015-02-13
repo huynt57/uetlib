@@ -2,9 +2,25 @@
 
 class SearchController extends Controller {
 
+    public $headerTitle;
+
     public function actionIndex() {
+
         $query = StringHelper::filterString($_GET['query']);
         $option = StringHelper::filterString($_GET['search-option']);
+
+        $this->headerTitle = "Kết quả tìm kiếm cho từ khóa \"" . $query."\"";
+        $this->pageTitle = "Kết quả tìm kiếm cho từ khóa \"" . $query."\"" . " | uetlib.edu.vn";
+        $title = "Kết quả tìm kiếm cho từ khóa \"" . $query."\"" . " | uetlib.edu.vn";
+        $des = "Kết quả tìm kiếm cho từ khóa \"" . $query."\"" . " | uetlib.edu.vn";
+        $image = Yii::app()->getBaseUrl(true) . "/themes/classic/assets/images/logo.png";
+        Yii::app()->clientScript->registerMetaTag($title, null, null, array('property' => 'og:title'));
+        Yii::app()->clientScript->registerMetaTag($image, null, null, array('property' => 'og:image'));
+        Yii::app()->clientScript->registerMetaTag(500, null, null, array('property' => 'og:image:width'));
+        Yii::app()->clientScript->registerMetaTag(500, null, null, array('property' => 'og:image:height'));
+        Yii::app()->clientScript->registerMetaTag("website", null, null, array('property' => 'og:type'));
+        Yii::app()->clientScript->registerMetaTag($des, null, null, array('property' => 'og:description'));
+
 
         if ($option == "everything") {
             $search_book_id = $this->SearchBookByID($query);
@@ -76,9 +92,9 @@ class SearchController extends Controller {
         }
     }
 
-    public function actionDetailBook() {
-        $this->layout = "detail_search";
+    public function actionDetailBook() {   
         try {
+            $this->layout = "detail_search";
             $book_id = str_replace("_", "/", StringHelper::filterString($_GET['id']));
             $sql = "SELECT * FROM books JOIN booktype ON books.bookTypeID = booktype.bookTypeID JOIN branchbook ON books.branchID = branchbook.branchID WHERE books.bookID = '" . $book_id . "'";
             $book_detail = Yii::app()->db->createCommand($sql)->queryRow();

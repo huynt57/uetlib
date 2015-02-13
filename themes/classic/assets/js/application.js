@@ -28,9 +28,9 @@ $(function() {
 		pagingType: 'full_numbers',
 		dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
 		language: {
-			search: '<span>Filter:</span> _INPUT_',
-			lengthMenu: '<span>Show:</span> _MENU_',
-			paginate: { 'first': 'First', 'last': 'Last', 'next': '>', 'previous': '<' }
+			search: '<span>Lọc:</span> _INPUT_',
+			lengthMenu: '<span>Hiển thị:</span> _MENU_',
+			paginate: { 'first': 'Đầu tiên', 'last': 'Cuối cùng', 'next': '>', 'previous': '<' }
 		}
 	});
 
@@ -184,7 +184,7 @@ $(function() {
     });
 
 
-	$('.dataTables_filter input[type=search]').attr('placeholder','Type to filter...');
+	$('.dataTables_filter input[type=search]').attr('placeholder','Gõ từ khóa cần lọc ...');
 
 
 
