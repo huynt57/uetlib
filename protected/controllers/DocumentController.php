@@ -22,10 +22,12 @@ class DocumentController extends Controller {
         try {
             $book_id = $_GET['book_id'];
             $book_id = str_replace('_', '/', $book_id);
-            $book_detail = Books::model()->findByAttributes(array('bookID' => $book_id));
+            $book_id = StringHelper::filterString($book_id);
+            $sql = "SELECT * FROM books JOIN booktype ON books.bookTypeID = booktype.bookTypeID JOIN branchbook ON books.branchID = branchbook.branchID WHERE books.bookID = '".$book_id."'";
+            $book_detail = Yii::app()->db->createCommand($sql)->queryRow();
             $this->render('detail', array('book_detail' => $book_detail));
         } catch (exception $e) {
-            $e->getMessage();
+            echo $e->getMessage();
         }
     }
 
