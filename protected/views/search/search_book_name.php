@@ -34,7 +34,7 @@
                             </div>
                         </td>
                         <td><?php echo $res->bookName ?></td>
-    <!--                        <td><h4><?php //echo $res->numbers   ?></h4></td>-->
+    <!--                        <td><h4><?php //echo $res->numbers    ?></h4></td>-->
                         <?php
                         $sql2 = "SELECT count(*) AS count_lend FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.copyID WHERE books.bookID = '" . $res->bookID . "'";
                         $count_lend = Yii::app()->db->createCommand($sql2)->queryRow();

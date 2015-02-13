@@ -12,7 +12,7 @@
         <div class="tab-pane fade in" id="search-book-name">
             <?php if ($search_book_name != "") $this->renderPartial('search_book_name', array('search_book_name' => $search_book_name)); ?>
         </div>
-        <?php if ($search_student_id != ""): ?>
+        <?php if ($search_student_id != "" && $search_book_id ==""): ?>
             <div class="tab-pane <?php echo 'active' ?> fade in" id="search-student-id">
                 <?php $this->renderPartial('search_student_id', array('search_student_id' => $search_student_id)); ?>
             </div>

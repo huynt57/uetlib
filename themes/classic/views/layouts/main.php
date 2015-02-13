@@ -63,55 +63,24 @@
                     <span class="sr-only">Toggle menu</span>
                     <i class="icon-paragraph-justify2"></i>
                 </button>
-                <a class="navbar-brand" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/images/logo.png" alt="Londinium"></a>
+                <a class="navbar-brand" href="<?php echo Yii::app()->createUrl('document'); ?>">Thư viện hội sinh viên UET - VNU</a>
             </div>
 
             <ul class="nav navbar-nav collapse" id="navbar-menu">
-                <li><a href="#"><i class="icon-screen2"></i> <span>Dashboard</span></a></li>
+                <li><a href="<?php echo Yii::app()->createUrl('document'); ?>"><i class="icon-screen2"></i> <span>Trang chủ</span></a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-paragraph-justify2"></i> <span>Forms</span> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book2"></i> <span>Loại sách</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="form_components.html">Form components</a></li>
-                        <li><a href="form_layouts.html">Form layouts</a></li>
-                        <li><a href="form_grid.html">Inputs grid</a></li>
-                        <li><a href="wysiwyg.html">WYSIWYG editor</a></li>
-                        <li><a href="validation.html">Validation</a></li>
-                        <li><a href="file_uploader.html">Multiple file uploader</a></li>
-                        <li><a href="form_snippets.html">Form snippets</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-grid"></i> <span>Components</span> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notebook"></i> <span>Thể loại</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="visuals.html">Visuals &amp; notifications</a></li>
-                        <li><a href="navs.html">Navs</a></li>
-                        <li><a href="panel_options.html">Panel options</a></li>
-                        <li><a href="navbars.html">Navbars</a></li>
-                        <li><a href="info_blocks.html">Info blocks</a></li>
-                        <li><a href="icons.html">Icons <span class="label label-danger">850+</span></a></li>
-                        <li><a href="buttons.html">Buttons</a></li>
-                        <li><a href="calendar.html">Calendar</a></li>
-                        <li><a href="typography.html">Typography</a></li>
-                        <li><a href="gallery.html">Media gallery</a></li>
-                        <li><a href="header_elements.html">Page header elements</a></li>
-                        <li><a href="content_grid.html">Content grid</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-copy"></i> <span>Layouts</span>  <b class="caret"></b></a>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="sidebar_wide_left.html">Left wide sidebar</a></li>
-                        <li><a href="sidebar_wide_right.html">Right wide sidebar</a></li>
-                        <li><a href="sidebar_narrow_left.html">Left narrow sidebar</a></li>
-                        <li><a href="sidebar_narrow_right.html">Right narrow sidebar</a></li>
-                        <li><a href="sidebar_icons_left.html">Left aligned icons</a></li>
-                        <li><a href="sidebar_collapsed.html">Collapsed sidebar</a></li>
-                        <li><a href="layout_fixed_navbar.html">Fixed navbar</a></li>
-                        <li class="active"><a href="horizontal_navigation.html">Horizontal navigation</a></li>
-                        <li><a href="horizontal_sidebar.html">Sidebar &amp; Horizontal navigation</a></li>
-                        <li><a href="navigation_disabled_items.html">Disabled navigation items</a></li>
-                    </ul>
-                </li>
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search3"></i> <span>Search</span> <b class="caret"></b></a>
                     <div class="popup dropdown-menu dropdown-menu-right" style="display: none;">
@@ -175,7 +144,7 @@
 
                 <!-- Footer -->
                 <div class="footer clearfix">
-                    <div class="pull-left">Copyright 2014 - UETLib. All Rights Reserved. Developed by <a href="https://www.facebook.com/zhu.gheliang.5">Nguyễn Thế Huy</a> - K57CA UET - VNU</div>
+                    <div class="pull-left">Copyright 2014 - UETLib. All Rights Reserved. Developed by <a href="https://www.facebook.com/zhu.gheliang.5">Nguyễn Thế Huy</a> - K57CA UET - VNU - <a href="https://bluebee-uet.com">Bluebee UET Team</a></div>
                     <div class="pull-right icons-group">
                         <a href="#"><i class="icon-screen2"></i></a>
                         <a href="#"><i class="icon-balance"></i></a>
