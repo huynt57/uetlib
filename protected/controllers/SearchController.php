@@ -110,8 +110,6 @@ class SearchController extends Controller {
             $student_id = StringHelper::filterString($_GET['id']);
             $sql = "SELECT * FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.bookID WHERE lend.studentID = '" . $student_id . "' AND returnTime IS NULL";
             $student_detail = Yii::app()->db->createCommand($sql)->queryAll();
-            $sql2 = "SELECT * FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.bookID WHERE lend.studentID = '" . $student_id . "' AND returnTime IS NOT NULL";
-            $student_detail_return = Yii::app()->db->createCommand($sql2)->queryAll();
             $this->render('detailuser', array('student_detail' => $student_detail, 'studentID' => $student_id, 'student_detail_return' => $student_detail_return));
         } catch (exception $e) {
             echo $e->getMessage();

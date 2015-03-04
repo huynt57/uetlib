@@ -1,14 +1,4 @@
-<script type="text/javascript">
-    function getInfoUserID(id) {
-        $("#result-student-id").html("<h4>Loading .... </h4>");
-        $.get("<?php echo Yii::app()->createUrl('search/detailuser?id=') ?>" + id, function(data) {
 
-            $("#result-student-id").empty();
-            $("#result-student-id").html(data);
-
-        });
-    }
-</script>
 <div class="block">
     <h6 class="heading-hr"><i class="icon-stack"></i>Kết quả tìm kiếm</h6>
     <div class="datatable-books datatable">
@@ -19,7 +9,8 @@
                     <th>Tên sinh viên</th>
                     <th>Lớp / Đơn vị</th>                  
                     <th>Ngày sinh</th>
-                    <th class="text-center">Thông tin chi tiết</th>
+                    <th class="text-center">Sách đang mượn</th>
+                    <th class="text-center">Sách quá hạn</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +20,27 @@
                         <td><?php echo $res->studentName ?></td>
                         <td><?php echo $res->grade ?></td>
                         <td><span class="text-semibold"><?php echo $res->birthday ?></span></td>
-                        <td class="text-center"><a data-toggle="modal" role="button" href="#default-modal-student-id" class="btn btn-default btn-xs btn-icon" onclick="getInfoUserID('<?php echo str_replace("/", "_", $res->studentID) ?>')"><i class="icon-file6" ></i></a></td>
+                        <?php
+                        $sql = "SELECT * FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.bookID WHERE lend.studentID = '" . $res->studentID . "' AND returnTime IS NULL AND NOW() <= lend.endTime";
+                        $student_detail_indate = Yii::app()->db->createCommand($sql)->queryAll();
+                        ?>
+                        
+                        <td><?php foreach ($student_detail_indate as $detail): ?>
+                            <?php echo $detail['bookID'] ;?>: <?php echo $detail['bookName'] ;?>
+                            <?php echo '</br>';?>
+                            <?php endforeach;?>
+                        </td>
+                        
+                        <?php
+                        $sql2 = "SELECT * FROM lend JOIN copies ON lend.copyID = copies.copyID JOIN books ON books.bookID = copies.bookID WHERE lend.studentID = '" . $res->studentID . "' AND returnTime IS NULL AND NOW() >lend.endTime";
+                        $student_detail_outdate = Yii::app()->db->createCommand($sql2)->queryAll();
+                        ?>
+                        
+                        <td><?php foreach ($student_detail_outdate as $detail2): ?>
+                            <?php echo $detail2['bookID'] ;?>: <?php echo $detail2['bookName'] ;?>
+                            <?php echo '</br>';?>
+                            <?php endforeach;?>
+                        </td>
                     </tr>   
                 <?php endforeach; ?>                
             </tbody>

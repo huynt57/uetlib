@@ -26,8 +26,8 @@
         <i class="icon-stack"></i>Quản lý các bản copy
         <a data-toggle="modal" href="#default-modal-add"><button class="btn btn-success" style="margin-left: 100px;" onclick="addcopy()"><i class="icon-file-plus"></i> Thêm một bản copy</button></a>
     </h6>
-    <div class="datatable-books datatable">
-        <table class="table table-striped table-bordered">
+    <div class="datatable-books">
+        <table class="table table-striped table-bordered" id="table-index">
             <thead>
                 <tr>
                     <th class="book-number">Mã Sách</th>
@@ -43,9 +43,10 @@
                     <tr>
                         <td><strong><?php echo $copy->bookID; ?></strong></td>
 
-                        <td><strong><?php $book_name = Books::model()->findByAttributes(array('bookID' => $copy->bookID));
-                echo $book_name->bookName;
-                    ?></strong></td>
+                        <td><strong><?php
+                                $book_name = Books::model()->findByAttributes(array('bookID' => $copy->bookID));
+                                echo $book_name->bookName;
+                                ?></strong></td>
                         <td><?php echo $copy->copyID; ?></td>
                         <td><?php echo $copy->note; ?></td>
                         <td><?php echo $copy->checked; ?></td>
@@ -110,3 +111,11 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+        var oTable = $('#table-index').dataTable({
+            "bProcessing": true,
+            "bDeferRender": true
+        });
+    });
+</script>

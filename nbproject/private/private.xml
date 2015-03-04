@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/editbook.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/editbooktype.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/modules/admin/controllers/DocumentController.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/controllers/SearchController.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/controllers/DocumentController.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/addlend.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/editlend.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/modules/admin/views/lend/index.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/modules/admin/controllers/LendController.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/modules/admin/controllers/BooktypeController.php</file>
-            <file>file:/E:/xampp/htdocs/uetlib/protected/views/search/addbook.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
